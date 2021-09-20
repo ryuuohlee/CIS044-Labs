@@ -22,6 +22,13 @@ public interface BagInterface<T>
        @param anEntry  The entry to be removed.
        @return  True if the removal was successful, or false if not. */
    public boolean remove(T anEntry);
+
+    /** Replaces a specified item with a new one.
+    * @param anEntry
+    * @param replacement
+    * @return
+    */
+	public T replace(T anEntry, T replacement);
 	
 	/** Removes all entries from this bag. */
 	public void clear();

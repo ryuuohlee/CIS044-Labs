@@ -8,6 +8,7 @@ public class Main {
 		b1.add("orange");
 		b1.add("pear");
 		String item = "lemon";
+		String newItem = "honey";
 		if (b1.contains(item))
 			System.out.println("We already have " + item);
 		else
@@ -38,7 +39,9 @@ public class Main {
 		System.out.println("Buy the following items: " );
 		thingsToBuy.display();
 		
-		
+		item = "apple";
+		b1.replace(item, newItem);
+		System.out.println("We replaced " + item + " with " + newItem);
 
 	}
 

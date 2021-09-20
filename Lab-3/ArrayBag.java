@@ -130,6 +130,7 @@ public final class ArrayBag<T> implements BagInterface<T>
       return result;
 	} // end remove
 	
+   
 	/** Removes one occurrence of a given entry from this bag.
        @param anEntry  The entry to be removed.
        @return  True if the removal was successful, or false if not. */
@@ -140,6 +141,19 @@ public final class ArrayBag<T> implements BagInterface<T>
       T result = removeEntry(index);         
       return anEntry.equals(result);
 	} // end remove   
+
+   /** Replaces a specified item with a new one.
+    * @param anEntry
+    * @param replacement
+    * @return
+    */
+   public T replace(T anEntry, T replacement)
+   {
+      int index = getIndexOf(anEntry);
+      T replacedItem = bag[index];
+      bag[index] = replacement;
+      return replacedItem;
+   }
 	
    // Returns true if the array bag is full, or false if not.
 	private boolean isArrayFull()
