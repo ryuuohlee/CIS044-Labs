@@ -23,6 +23,50 @@ public class Main
         System.out.print("Please enter your choice: ");
     }
 
+    public static void addNewPlayer() {
+        player_manager.addNewPlayer();
+    }
+
+    public static void findAndAddPlayersToQueue() {
+        Scanner scanner = new Scanner(System.in);
+        Player playerX = null, playerO = null;
+        while (playerX == null) {
+            System.out.print("Enter name of the next Player X: ");
+            String name = scanner.next();
+            playerX = player_manager.findPlayerByName(name);
+            if (playerX == null) {
+                System.out.printf("Cannot find player with name '%s'. Please try again.\n", name);
+            } else {
+                x_players.add(playerX);
+                System.out.printf("Player '%s' added to Player X queue.\n", name);
+            }
+        }
+        while (playerO == null) {
+            System.out.print("Enter name of the next Player O: ");
+            String name = scanner.next();
+            playerO = player_manager.findPlayerByName(name);
+            if (playerO == null) {
+                System.out.printf("Cannot find player with name '%s'. Please try again.\n", name);
+            } else {
+                o_players.add(playerO);
+                System.out.printf("Player '%s' added to Player O queue.\n", name);
+            }
+        }
+    }
+
+    public static void startNewGame() {
+        Player playerX, playerO;
+        playerX = x_players.poll();
+        if (playerX == null) {
+            System.out.println("Could not find next player X");
+        }
+        playerO = o_players.poll();
+        if (playerO == null) {
+            System.out.println("Could not find next player O");
+        }
+        // Start the game and push new winner/loser into winners or losers stack
+    }
+
     public static void showLastWinners() {
         Scanner scanner = new Scanner(System.in);
         int n = 0;
@@ -61,6 +105,22 @@ public class Main
     }
 
     public static void main(String[] args) throws Exception {
+
+        //create dummy test players
+        Player newPlayer = new Player("Jeff", 31);
+        winners.push(newPlayer);
+        Player secondNewPlayer = new Player("Ivy", 31);
+        winners.push(secondNewPlayer);
+        Player thirdNewPlayer = new Player("Jonathan", 29);
+        winners.push(thirdNewPlayer);
+
+        Player newLoserPlayer = new Player("Jeff", 31);
+        losers.push(newLoserPlayer);
+        Player secondNewLoserPlayer = new Player("Ivy", 31);
+        losers.push(secondNewLoserPlayer);
+        Player thirdNewLoserPlayer = new Player("Jonathan", 29);
+        losers.push(thirdNewLoserPlayer);
+
         Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
         while (isRunning) {
@@ -87,5 +147,9 @@ public class Main
                     break;
             }
         }
+    }
+
+    private static Player Player(String string, int i) {
+        return null;
     }
 }
