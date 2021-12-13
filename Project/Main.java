@@ -70,6 +70,7 @@ public class Main
     public static void showLastWinners() {
         Scanner scanner = new Scanner(System.in);
         int n = 0;
+        System.out.println(winners);
         while (n == 0) {
             System.out.print("Enter number of winners you want to see: ");
             n = scanner.nextInt();
@@ -113,6 +114,8 @@ public class Main
         winners.push(secondNewPlayer);
         Player thirdNewPlayer = new Player("Jonathan", 29);
         winners.push(thirdNewPlayer);
+        Player fourthNewPlayer = new Player("Muhammad", 28);
+        winners.push(fourthNewPlayer);
 
         Player newLoserPlayer = new Player("Jeff", 31);
         losers.push(newLoserPlayer);
@@ -120,6 +123,8 @@ public class Main
         losers.push(secondNewLoserPlayer);
         Player thirdNewLoserPlayer = new Player("Jonathan", 29);
         losers.push(thirdNewLoserPlayer);
+        Player fourthLoserNewPlayer = new Player("Dustin", 28);
+        losers.push(fourthLoserNewPlayer);
 
         Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
